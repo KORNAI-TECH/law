@@ -12,7 +12,7 @@ Below is a list of available tools and integrations, categorized by their main o
 
 *   **Dashboard Management** — A minimalist and clean interface to seamlessly track the number of new, in-progress, and closed client requests.
 *   **Cloud Database Gateway** — Supabase is utilized strictly as a temporary gateway for Telegram notifications. A scheduled CRON job automatically purges all records within 10 minutes to ensure maximum data privacy.
-*   **Instant Notifications Engine** — Receive immediate alerts when a new client is added directly to Telegram and via Email (SMTP).
+*   **Instant Notifications Engine** — Receive immediate alerts when a new client is added via Email (SMTP). Additionally, Telegram notifications can be considered for future implementation (currently not realized).
 
 ---
 
@@ -23,7 +23,7 @@ Projects inside this repository leverage modern, lightweight open-source librari
 *   **Frontend Environment:** React 19, Vite, Tailwind CSS 4, Framer Motion
 *   **Backend & API:** Node.js, Express (TypeScript)
 *   **Database & Auth:** `Supabase` (PostgreSQL)
-*   **Networking & Notifications:** `nodemailer` (SMTP), Telegram Bot API
+*   **Networking & Notifications:** `nodemailer` (SMTP)
 
 ---
 
@@ -33,7 +33,7 @@ To ensure proper functionality, make sure your machine has:
 
 1. **Node.js 18+**
 2. **Supabase Account** (Create a project and execute `supabase_schema.sql` in the SQL Editor).
-3. **Environment Variables**: Configure `.env` using `.env.example` (add your Telegram Bot Token and SMTP credentials).
+3. **Environment Variables**: Configure `.env` using `.env.example` (add your SMTP credentials).
 
 **Launch Commands:**
 *   *Development:* `npm install` && `npm run dev`
@@ -54,7 +54,7 @@ To ensure proper functionality, make sure your machine has:
 
 *   **Управление заявками (Дашборд)** — Минималистичный интерфейс для удобного отслеживания новых, находящихся в работе и закрытых заявок.
 *   **Облачный шлюз** — Supabase используется исключительно как временный шлюз для отправки уведомлений в Telegram. Настроено автоматическое удаление всех записей в течение 10 минут через CRON для обеспечения конфиденциальности.
-*   **Мгновенные уведомления** — Автоматическая отправка оповещений о новых клиентах напрямую в Telegram и на Email (через SMTP).
+*   **Мгновенные уведомления** — Автоматическая отправка оповещений о новых клиентах на Email (через SMTP). Дополнительно можно рассмотреть возможность отправки в Telegram (сейчас это не реализовано).
 
 ---
 
@@ -63,7 +63,7 @@ To ensure proper functionality, make sure your machine has:
 *   **Фронтенд:** React 19, Vite, Tailwind CSS 4, Framer Motion
 *   **Бэкенд:** Node.js, Express (TypeScript)
 *   **База данных:** `Supabase` (PostgreSQL)
-*   **Уведомления:** `nodemailer` (SMTP), Telegram Bot API
+*   **Уведомления:** `nodemailer` (SMTP)
 
 ---
 
@@ -73,7 +73,7 @@ To ensure proper functionality, make sure your machine has:
 
 1. **Node.js 18+**
 2. **Supabase** (Создайте проект и выполните SQL-скрипт из `supabase_schema.sql`).
-3. **Переменные окружения**: Настройте файл `.env` на основе `.env.example` (укажите токен Telegram-бота и SMTP-доступы).
+3. **Переменные окружения**: Настройте файл `.env` на основе `.env.example` (укажите SMTP-доступы).
 
 **Команды для запуска:**
 *   *Разработка:* `npm install` && `npm run dev`
