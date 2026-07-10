@@ -29,6 +29,10 @@ export default function App() {
     setClients(clients.map(c => c.id === id ? { ...c, status: newStatus } : c));
   };
 
+  const handleDeleteClient = (id: string) => {
+    setClients(clients.filter(c => c.id !== id));
+  };
+
   const stats = {
     total: clients.length,
     new: clients.filter(c => c.status === 'Новый').length,
@@ -75,7 +79,7 @@ export default function App() {
             <p className="text-zinc-500 text-sm mt-1">Управление статусами и контактами</p>
           </div>
           
-          <ClientTable clients={clients} onStatusChange={handleStatusChange} />
+          <ClientTable clients={clients} onStatusChange={handleStatusChange} onDelete={handleDeleteClient} />
         </main>
 
       </div>

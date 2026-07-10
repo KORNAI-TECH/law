@@ -1,14 +1,15 @@
 import { Client, ClientStatus } from '../types';
-import { User, Phone, Calendar } from 'lucide-react';
+import { User, Phone, Calendar, Trash2 } from 'lucide-react';
 
 interface ClientTableProps {
   clients: Client[];
   onStatusChange: (id: string, newStatus: ClientStatus) => void;
+  onDelete: (id: string) => void;
 }
 
 const statuses: ClientStatus[] = ['Новый', 'В работе', 'Закрыт'];
 
-export function ClientTable({ clients, onStatusChange }: ClientTableProps) {
+export function ClientTable({ clients, onStatusChange, onDelete }: ClientTableProps) {
   if (clients.length === 0) {
     return (
       <div className="w-full bg-white/5 border border-white/10 rounded-3xl p-12 flex flex-col items-center justify-center text-center">
@@ -31,6 +32,7 @@ export function ClientTable({ clients, onStatusChange }: ClientTableProps) {
               <th className="px-6 py-4 text-xs font-semibold text-zinc-400 uppercase tracking-wider">Контакты</th>
               <th className="px-6 py-4 text-xs font-semibold text-zinc-400 uppercase tracking-wider">Дата</th>
               <th className="px-6 py-4 text-xs font-semibold text-zinc-400 uppercase tracking-wider">Статус</th>
+              <th className="px-6 py-4 text-xs font-semibold text-zinc-400 uppercase tracking-wider text-right"></th>
             </tr>
           </thead>
           <tbody>
@@ -77,6 +79,15 @@ export function ClientTable({ clients, onStatusChange }: ClientTableProps) {
                       </button>
                     ))}
                   </div>
+                </td>
+                <td className="px-6 py-4 text-right">
+                  <button
+                    onClick={() => onDelete(client.id)}
+                    className="text-zinc-500 hover:text-red-400 transition-colors p-2 hover:bg-red-400/10 rounded-full cursor-pointer"
+                    title="Удалить"
+                  >
+                    <Trash2 size={16} />
+                  </button>
                 </td>
               </tr>
             ))}

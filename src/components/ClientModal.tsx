@@ -43,14 +43,43 @@ export function ClientModal({ isOpen, onClose, onAdd }: ClientModalProps) {
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let val = e.target.value;
     
-    // Автоматическая замена первой '8' на '+7'
-    if (val === '8') {
-      val = '+7 ';
-    } else if (val.startsWith('8')) {
-      val = '+7' + val.substring(1);
+    // Если пользователь стирает, просто разрешаем
+    if (val.length < phone.length) {
+      setPhone(val);
+      if (phoneError) setPhoneError('');
+      return;
+    }
+
+    let digits = val.replace(/\D/g, '');
+    
+    if (!digits) {
+      setPhone(val === '+' ? '+' : '');
+      if (phoneError) setPhoneError('');
+      return;
+    }
+
+    // Форматирование российских номеров
+    if (['7', '8', '9'].includes(digits[0])) {
+      if (digits[0] === '9') digits = '7' + digits;
+      
+      let formatted = '+7 ';
+      if (digits.length > 1) {
+        formatted += '(' + digits.substring(1, 4);
+      }
+      if (digits.length >= 5) {
+        formatted += ') ' + digits.substring(4, 7);
+      }
+      if (digits.length >= 8) {
+        formatted += '-' + digits.substring(7, 9);
+      }
+      if (digits.length >= 10) {
+        formatted += '-' + digits.substring(9, 11);
+      }
+      setPhone(formatted);
+    } else {
+      setPhone('+' + digits);
     }
     
-    setPhone(val);
     if (phoneError) setPhoneError('');
   };
 
