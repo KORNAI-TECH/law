@@ -44,6 +44,7 @@ export default async function handler(req, res) {
   const smtpUser = process.env.SMTP_USER;
   const smtpPass = process.env.SMTP_PASS;
   const smtpFrom = process.env.SMTP_FROM || "info@kornai.ru";
+  const smtpTo = process.env.SMTP_TO || "tedwy@mail.ru";
 
   if (smtpHost && smtpPort && smtpUser && smtpPass) {
     try {
@@ -59,7 +60,7 @@ export default async function handler(req, res) {
 
       await transporter.sendMail({
         from: `"KORNAI CRM" <${smtpFrom}>`,
-        to: "ankornienko@ds-soft.pro",
+        to: smtpTo,
         subject: "Новый клиент в CRM",
         text: `Имя: ${name}\nТелефон: ${phone}\nСтатус: ${status}`,
         html: `<p><strong>Имя:</strong> ${name}</p><p><strong>Телефон:</strong> ${phone}</p><p><strong>Статус:</strong> ${status}</p>`,
