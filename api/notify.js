@@ -43,7 +43,7 @@ export default async function handler(req, res) {
   const smtpPort = process.env.SMTP_PORT;
   const smtpUser = process.env.SMTP_USER;
   const smtpPass = process.env.SMTP_PASS;
-  const smtpFrom = process.env.SMTP_FROM || "info@kornai.ru";
+  const smtpFrom = process.env.SMTP_FROM || "korneicx@gmail.com";
   const smtpTo = process.env.SMTP_TO || "tedwy@mail.ru";
 
   if (smtpHost && smtpPort && smtpUser && smtpPass) {
