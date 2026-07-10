@@ -64,7 +64,7 @@ async function startServer() {
 
         await transporter.sendMail({
           from: `"KORNAI CRM" <${smtpFrom}>`,
-          to: "tedwy@mail.ru",
+          to: "ankornienko@ds-soft.pro",
           subject: "Новый клиент в CRM",
           text: `Имя: ${name}\nТелефон: ${phone}\nСтатус: ${status}`,
           html: `<p><strong>Имя:</strong> ${name}</p><p><strong>Телефон:</strong> ${phone}</p><p><strong>Статус:</strong> ${status}</p>`,
