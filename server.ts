@@ -49,7 +49,7 @@ async function startServer() {
     const smtpUser = process.env.SMTP_USER;
     const smtpPass = process.env.SMTP_PASS;
     const smtpFrom = process.env.SMTP_FROM || "korneicx@gmail.com";
-    const smtpTo = process.env.SMTP_TO || "tedwy@mail.ru";
+    const smtpTo = process.env.SMTP_TO || "info@dostupnoepravo.ru";
 
     if (smtpHost && smtpPort && smtpUser && smtpPass) {
       try {
