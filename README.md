@@ -1,20 +1,85 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# KORNAI LegalTech CRM
 
-# Run and deploy your AI Studio app
+Современная, быстрая и стильная CRM-система для юридической практики, позволяющая легко управлять входящими заявками клиентов, отслеживать их статусы и получать мгновенные уведомления в Telegram и на Email.
 
-This contains everything you need to run your app locally.
+## Особенности
 
-View your app in AI Studio: https://ai.studio/apps/a1f62e24-d380-4f8d-a883-9841570495e0
+- **Дашборд**: Минималистичный и понятный интерфейс для управления заявками.
+- **Метрики в реальном времени**: Отслеживание количества новых, находящихся в работе и закрытых заявок.
+- **Интеграция с Supabase**: Данные безопасно хранятся в базе данных PostgreSQL от Supabase.
+- **Мгновенные уведомления**: Получение моментальных оповещений при добавлении нового клиента:
+  - Сообщения в Telegram (в указанный чат/группу).
+  - Уведомления на электронную почту (через SMTP).
+- **Управление статусами**: Удобное переключение статусов клиентов между "Новый", "В работе" и "Закрыт".
 
-## Run Locally
+## Стек технологий
 
-**Prerequisites:**  Node.js
+- **Фронтенд**: React 19, Vite, Tailwind CSS 4, TypeScript, Framer Motion.
+- **Бэкенд**: Node.js, Express (TypeScript), интегрированный с Vite-middleware для локальной разработки.
+- **База данных**: Supabase (PostgreSQL).
+- **Уведомления**: Nodemailer (SMTP), Telegram Bot API.
 
+## Требования
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Перед локальным запуском проекта вам понадобятся:
+- Node.js (v18+)
+- Аккаунт и созданный проект в [Supabase](https://supabase.com/).
+- Токен Telegram-бота (от BotFather) и ID чата (Chat ID).
+- Почтовый аккаунт с доступом по SMTP (например, Gmail с паролем приложения).
+
+## Установка и запуск
+
+1. **Клонируйте репозиторий** (если применимо) и установите зависимости:
+   ```bash
+   npm install
+   ```
+
+2. **Настройка базы данных**:
+   - Перейдите в ваш проект Supabase -> **SQL Editor**.
+   - Скопируйте содержимое файла `supabase_schema.sql` (находится в корневой директории) и выполните этот SQL-код, чтобы создать необходимые таблицы и политики безопасности (RLS).
+
+3. **Переменные окружения**:
+   Создайте файл `.env` в корневой директории и настройте его, опираясь на пример из `.env.example`:
+
+   ```env
+   # Конфигурация Supabase
+   VITE_SUPABASE_URL="ваш-url-проекта"
+   VITE_SUPABASE_ANON_KEY="ваш-anon-key"
+
+   # Уведомления Telegram (опционально)
+   TELEGRAM_BOT_TOKEN="токен-вашего-бота"
+   TELEGRAM_CHAT_ID="id-вашего-чата"
+
+   # Конфигурация Email (SMTP)
+   SMTP_HOST="smtp.gmail.com"
+   SMTP_PORT="465"
+   SMTP_USER="ваша-почта@gmail.com"
+   SMTP_PASS="пароль-приложения"
+   SMTP_FROM="ваша-почта@gmail.com"
+   SMTP_TO="почта-получателя@domain.com"
+   ```
+
+4. **Запуск сервера для разработки**:
+   ```bash
+   npm run dev
+   ```
+   Приложение будет доступно по адресу `http://localhost:3000`.
+
+## Сборка для продакшена (Production)
+
+Чтобы собрать приложение для продакшена, выполните:
+```bash
+npm run build
+```
+Эта команда собирает фронтенд с помощью Vite и упаковывает Node.js бэкенд с помощью esbuild в единый файл `dist/server.cjs`.
+
+Запуск продакшен-сервера:
+```bash
+npm start
+```
+
+## Вклад в проект
+Будем рады вашим pull request'ам и issue, если вы захотите улучшить этот проект!
+
+## Лицензия
+MIT
