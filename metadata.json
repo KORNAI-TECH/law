@@ -1,0 +1,6 @@
+{
+  "name": "KORNAI CRM",
+  "description": "LegalTech CRM prototype with Supabase, Telegram, and Email integrations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
