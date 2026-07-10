@@ -11,7 +11,7 @@ A modern, fast, and sleek CRM system built for legal practices, designed to opti
 Below is a list of available tools and integrations, categorized by their main objectives.
 
 *   **Dashboard Management** — A minimalist and clean interface to seamlessly track the number of new, in-progress, and closed client requests.
-*   **Cloud Database Integration** — Data is stored securely in a Supabase PostgreSQL database with real-time sync capabilities.
+*   **Cloud Database Gateway** — Supabase is utilized strictly as a temporary gateway for Telegram notifications. A scheduled CRON job automatically purges all records within 10 minutes to ensure maximum data privacy.
 *   **Instant Notifications Engine** — Receive immediate alerts when a new client is added directly to Telegram and via Email (SMTP).
 
 ---
@@ -53,7 +53,7 @@ To ensure proper functionality, make sure your machine has:
 ## 🚀 Доступные инструменты и функции:
 
 *   **Управление заявками (Дашборд)** — Минималистичный интерфейс для удобного отслеживания новых, находящихся в работе и закрытых заявок.
-*   **Облачная база данных** — Безопасное хранение данных в PostgreSQL от Supabase.
+*   **Облачный шлюз** — Supabase используется исключительно как временный шлюз для отправки уведомлений в Telegram. Настроено автоматическое удаление всех записей в течение 10 минут через CRON для обеспечения конфиденциальности.
 *   **Мгновенные уведомления** — Автоматическая отправка оповещений о новых клиентах напрямую в Telegram и на Email (через SMTP).
 
 ---
