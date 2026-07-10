@@ -82,5 +82,5 @@ To ensure proper functionality, make sure your machine has:
 ---
 ---
 
-👨‍💻 **Developer:** Alexei Kornienko (Nothingtham)  
+👨‍💻 **Developer:** Alexei Kornienko  
 📬 **Reach me at:** [Telegram: @AlexeiKornienko](https://t.me/AlexeiKornienko)
