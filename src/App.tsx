@@ -86,6 +86,22 @@ export default function App() {
           createdAt: insertedData.created_at
         };
         setClients([newClient, ...clients]);
+
+        // 2. Отправляем уведомления (Telegram + Email)
+        try {
+          const notifyRes = await fetch('/api/notify', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          const notifyData = await notifyRes.json();
+          console.log('Результат отправки уведомлений:', notifyData);
+          if (!notifyData.emailSuccess) {
+            console.warn('Внимание: сервер вернул emailSuccess: false. Проверьте логи Vercel.');
+          }
+        } catch (err) {
+          console.error('Ошибка сети при отправке уведомлений:', err);
+        }
       }
     } catch (err) {
       console.error('Ошибка добавления клиента:', err);
