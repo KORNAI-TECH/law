@@ -1,85 +1,86 @@
-# KORNAI LegalTech CRM
+# ⚖️ KORNAI LegalTech CRM
 
-Современная, быстрая и стильная CRM-система для юридической практики, позволяющая легко управлять входящими заявками клиентов, отслеживать их статусы и получать мгновенные уведомления в Telegram и на Email.
+[Russian version below](#-русская-версия)
 
-## Особенности
+A modern, fast, and sleek CRM system built for legal practices, designed to optimize routine workflows, manage incoming client leads, and automate notifications.
 
-- **Дашборд**: Минималистичный и понятный интерфейс для управления заявками.
-- **Метрики в реальном времени**: Отслеживание количества новых, находящихся в работе и закрытых заявок.
-- **Интеграция с Supabase**: Данные безопасно хранятся в базе данных PostgreSQL от Supabase.
-- **Мгновенные уведомления**: Получение моментальных оповещений при добавлении нового клиента:
-  - Сообщения в Telegram (в указанный чат/группу).
-  - Уведомления на электронную почту (через SMTP).
-- **Управление статусами**: Удобное переключение статусов клиентов между "Новый", "В работе" и "Закрыт".
+---
 
-## Стек технологий
+## 🚀 Navigation & Features
 
-- **Фронтенд**: React 19, Vite, Tailwind CSS 4, TypeScript, Framer Motion.
-- **Бэкенд**: Node.js, Express (TypeScript), интегрированный с Vite-middleware для локальной разработки.
-- **База данных**: Supabase (PostgreSQL).
-- **Уведомления**: Nodemailer (SMTP), Telegram Bot API.
+Below is a list of available tools and integrations, categorized by their main objectives.
 
-## Требования
+*   **Dashboard Management** — A minimalist and clean interface to seamlessly track the number of new, in-progress, and closed client requests.
+*   **Cloud Database Integration** — Data is stored securely in a Supabase PostgreSQL database with real-time sync capabilities.
+*   **Instant Notifications Engine** — Receive immediate alerts when a new client is added directly to Telegram and via Email (SMTP).
 
-Перед локальным запуском проекта вам понадобятся:
-- Node.js (v18+)
-- Аккаунт и созданный проект в [Supabase](https://supabase.com/).
-- Токен Telegram-бота (от BotFather) и ID чата (Chat ID).
-- Почтовый аккаунт с доступом по SMTP (например, Gmail с паролем приложения).
+---
 
-## Установка и запуск
+## 🛠️ Tech Stack
 
-1. **Клонируйте репозиторий** (если применимо) и установите зависимости:
-   ```bash
-   npm install
-   ```
+Projects inside this repository leverage modern, lightweight open-source libraries:
 
-2. **Настройка базы данных**:
-   - Перейдите в ваш проект Supabase -> **SQL Editor**.
-   - Скопируйте содержимое файла `supabase_schema.sql` (находится в корневой директории) и выполните этот SQL-код, чтобы создать необходимые таблицы и политики безопасности (RLS).
+*   **Frontend Environment:** React 19, Vite, Tailwind CSS 4, Framer Motion
+*   **Backend & API:** Node.js, Express (TypeScript)
+*   **Database & Auth:** `Supabase` (PostgreSQL)
+*   **Networking & Notifications:** `nodemailer` (SMTP), Telegram Bot API
 
-3. **Переменные окружения**:
-   Создайте файл `.env` в корневой директории и настройте его, опираясь на пример из `.env.example`:
+---
 
-   ```env
-   # Конфигурация Supabase
-   VITE_SUPABASE_URL="ваш-url-проекта"
-   VITE_SUPABASE_ANON_KEY="ваш-anon-key"
+## ⚙️ System Requirements & Setup
 
-   # Уведомления Telegram (опционально)
-   TELEGRAM_BOT_TOKEN="токен-вашего-бота"
-   TELEGRAM_CHAT_ID="id-вашего-чата"
+To ensure proper functionality, make sure your machine has:
 
-   # Конфигурация Email (SMTP)
-   SMTP_HOST="smtp.gmail.com"
-   SMTP_PORT="465"
-   SMTP_USER="ваша-почта@gmail.com"
-   SMTP_PASS="пароль-приложения"
-   SMTP_FROM="ваша-почта@gmail.com"
-   SMTP_TO="почта-получателя@domain.com"
-   ```
+1. **Node.js 18+**
+2. **Supabase Account** (Create a project and execute `supabase_schema.sql` in the SQL Editor).
+3. **Environment Variables**: Configure `.env` using `.env.example` (add your Telegram Bot Token and SMTP credentials).
 
-4. **Запуск сервера для разработки**:
-   ```bash
-   npm run dev
-   ```
-   Приложение будет доступно по адресу `http://localhost:3000`.
+**Launch Commands:**
+*   *Development:* `npm install` && `npm run dev`
+*   *Production Build:* `npm run build` && `npm start`
 
-## Сборка для продакшена (Production)
+---
+---
 
-Чтобы собрать приложение для продакшена, выполните:
-```bash
-npm run build
-```
-Эта команда собирает фронтенд с помощью Vite и упаковывает Node.js бэкенд с помощью esbuild в единый файл `dist/server.cjs`.
+# 🇷🇺 Русская версия
 
-Запуск продакшен-сервера:
-```bash
-npm start
-```
+## CRM-система KORNAI LegalTech
 
-## Вклад в проект
-Будем рады вашим pull request'ам и issue, если вы захотите улучшить этот проект!
+Современная, быстрая и стильная CRM-система для юридической практики, позволяющая автоматизировать рутинные процессы, управлять входящими заявками клиентов и получать мгновенные уведомления.
 
-## Лицензия
-MIT
+---
+
+## 🚀 Доступные инструменты и функции:
+
+*   **Управление заявками (Дашборд)** — Минималистичный интерфейс для удобного отслеживания новых, находящихся в работе и закрытых заявок.
+*   **Облачная база данных** — Безопасное хранение данных в PostgreSQL от Supabase.
+*   **Мгновенные уведомления** — Автоматическая отправка оповещений о новых клиентах напрямую в Telegram и на Email (через SMTP).
+
+---
+
+## 🛠️ Стек технологий:
+
+*   **Фронтенд:** React 19, Vite, Tailwind CSS 4, Framer Motion
+*   **Бэкенд:** Node.js, Express (TypeScript)
+*   **База данных:** `Supabase` (PostgreSQL)
+*   **Уведомления:** `nodemailer` (SMTP), Telegram Bot API
+
+---
+
+## ⚙️ Требования и запуск:
+
+Для корректной работы убедитесь, что у вас установлены:
+
+1. **Node.js 18+**
+2. **Supabase** (Создайте проект и выполните SQL-скрипт из `supabase_schema.sql`).
+3. **Переменные окружения**: Настройте файл `.env` на основе `.env.example` (укажите токен Telegram-бота и SMTP-доступы).
+
+**Команды для запуска:**
+*   *Разработка:* `npm install` && `npm run dev`
+*   *Продакшен:* `npm run build` && `npm start`
+
+---
+---
+
+👨‍💻 **Developer:** Alexei Kornienko (Nothingtham)  
+📬 **Reach me at:** [Telegram: @AlexeiKornienko](https://t.me/AlexeiKornienko)
